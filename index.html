@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MySolara - Data Apps Made Simple</title>
     <style>
         /* Reset and base styles */
@@ -17,89 +16,81 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #d1d5db;
-            background-color: #0a1124;
+            background-color: #111827;
             overflow-x: hidden;
-            position: relative;
         }
 
         /* Header */
         header {
-            background: rgba(31, 41, 55, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: #1f2937;
             border-bottom: 1px solid #374151;
-            padding: 1rem 1.5rem;
+            padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
         nav {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
         }
 
         .logo {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-size: 1.5rem;
             font-weight: 700;
-            color: #60a5fa;
-            text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
-            transition: transform 0.3s, text-shadow 0.3s;
+            color: #3b82f6;
+            transition: transform 0.3s;
         }
 
         .logo:hover {
             transform: scale(1.1);
-            text-shadow: 0 0 15px rgba(96, 165, 250, 0.8);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: clamp(0.8rem, 2vw, 1.5rem);
-            flex-wrap: wrap;
+            gap: 1.5rem;
         }
 
         nav ul li a {
             text-decoration: none;
             color: #d1d5db;
             font-weight: 500;
-            font-size: clamp(0.9rem, 2.5vw, 1rem);
             transition: color 0.2s, text-shadow 0.2s;
         }
 
         nav ul li a:hover {
-            color: #60a5fa;
-            text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+            color: #3b82f6;
+            text-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
         }
 
         .nav-cta {
-            background: linear-gradient(45deg, #3b82f6, #60a5fa);
+            background-color: #3b82f6;
             color: white;
             padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
+            border-radius: 0.375rem;
             text-decoration: none;
-            font-weight: 600;
-            font-size: clamp(0.9rem, 2.5vw, 1rem);
-            transition: transform 0.2s, box-shadow 0.2s;
-            animation: pulse 2s infinite;
+            font-weight: 500;
+            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
         }
 
         .nav-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 20px rgba(96, 165, 250, 0.7);
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
         }
 
         /* Hero Section */
         .hero {
             position: relative;
-            max-width: 1400px;
-            margin: 2rem auto;
+            max-width: 1200px;
+            margin: 4rem auto;
             text-align: center;
-            padding: clamp(2rem, 5vw, 4rem) 1.5rem;
-            background: linear-gradient(135deg, #1e3a8a 0%, #0a1124 100%);
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1e3a8a 0%, #111827 100%);
             border-radius: 1rem;
             overflow: hidden;
             z-index: 1;
@@ -112,29 +103,28 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(96, 165, 250, 0.3) 0%, transparent 50%);
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.2) 0%, transparent 50%);
             z-index: -1;
-            transition: background 0.05s;
+            transition: background 0.1s;
         }
 
         .hero h1 {
-            font-size: clamp(1.8rem, 6vw, 3.5rem);
+            font-size: 3rem;
             font-weight: 800;
             color: #f9fafb;
             line-height: 1.2;
             margin-bottom: 1.5rem;
-            text-shadow: 0 0 15px rgba(96, 165, 250, 0.5);
-            animation: fadeIn 1.2s ease-out;
-            transform: translateY(var(--parallax-y, 0)) rotate(var(--tilt, 0deg));
+            animation: fadeIn 1s ease-out;
+            transform: translateY(var(--parallax-y, 0));
             transition: transform 0.3s;
         }
 
         .hero p {
-            font-size: clamp(1rem, 3vw, 1.25rem);
+            font-size: 1.25rem;
             color: #d1d5db;
             max-width: 600px;
             margin: 0 auto 2rem;
-            animation: fadeIn 1.2s ease-out 0.3s;
+            animation: fadeIn 1s ease-out 0.2s;
             animation-fill-mode: both;
             transform: translateY(var(--parallax-y, 0));
             transition: transform 0.3s;
@@ -142,37 +132,38 @@
 
         .hero-cta {
             display: inline-block;
-            background: linear-gradient(45deg, #3b82f6, #60a5fa);
+            background-color: #3b82f6;
             color: white;
             padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
+            border-radius: 0.375rem;
             text-decoration: none;
             font-weight: 600;
-            font-size: clamp(1rem, 3vw, 1.125rem);
-            transition: transform 0.2s, box-shadow 0.2s;
-            animation: pulse 2s infinite;
+            font-size: 1.125rem;
+            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            animation: fadeIn 1s ease-out 0.4s;
+            animation-fill-mode: both;
         }
 
         .hero-cta:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 25px rgba(96, 165, 250, 0.8);
+            background-color: #2563eb;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.7);
         }
 
         /* Features Section */
         .features {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 4rem auto;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
         }
 
         .features h2 {
-            font-size: clamp(1.5rem, 5vw, 2.25rem);
+            font-size: 2.25rem;
             font-weight: 700;
             color: #f9fafb;
             text-align: center;
             margin-bottom: 3rem;
-            text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
-            animation: fadeIn 1.2s ease-out;
+            animation: fadeIn 1s ease-out;
         }
 
         .features-grid {
@@ -182,14 +173,13 @@
         }
 
         .feature-card {
-            background: rgba(31, 41, 55, 0.7);
-            backdrop-filter: blur(8px);
+            background-color: #1f2937;
             padding: 2rem;
-            border-radius: 0.75rem;
-            border: 1px solid rgba(96, 165, 250, 0.2);
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             text-align: center;
-            transition: transform 0.4s, box-shadow 0.4s, background 0.4s;
-            animation: zoomIn 1s ease-out;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            animation: fadeInUp 1s ease-out;
             animation-fill-mode: both;
         }
 
@@ -198,46 +188,43 @@
         .feature-card:nth-child(3) { animation-delay: 0.6s; }
 
         .feature-card:hover {
-            transform: translateY(-10px) rotate(2deg);
-            box-shadow: 0 10px 25px rgba(96, 165, 250, 0.4);
-            background: rgba(31, 41, 55, 0.9);
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+            background-color: #2d3748;
         }
 
         .feature-card h3 {
-            font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+            font-size: 1.5rem;
             font-weight: 600;
             color: #f9fafb;
             margin-bottom: 1rem;
-            text-shadow: 0 0 8px rgba(96, 165, 250, 0.3);
         }
 
         .feature-card p {
             color: #d1d5db;
-            font-size: clamp(0.9rem, 2.5vw, 1rem);
         }
 
         /* Footer */
         footer {
-            background: rgba(31, 41, 55, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: #1f2937;
             padding: 2rem;
             text-align: center;
             color: #d1d5db;
-            font-size: clamp(0.8rem, 2vw, 0.875rem);
+            font-size: 0.875rem;
         }
 
         footer a {
-            color: #60a5fa;
+            color: #3b82f6;
             text-decoration: none;
             transition: color 0.2s, text-shadow 0.2s;
         }
 
         footer a:hover {
-            color: #3b82f6;
-            text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+            color: #2563eb;
+            text-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
         }
 
-        /* Canvas for particles and waves */
+        /* Canvas for particles */
         #particles {
             position: fixed;
             top: 0;
@@ -248,18 +235,19 @@
             pointer-events: none;
         }
 
-        #waves {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -3;
-            opacity: 0.3;
-        }
-
         /* Animations */
         @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -270,94 +258,36 @@
             }
         }
 
-        @keyframes zoomIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8) rotate(-5deg);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) rotate(0);
-            }
-        }
-
         @keyframes pulse {
             0%, 100% {
                 transform: scale(1);
-                box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
             }
             50% {
-                transform: scale(1.05);
-                box-shadow: 0 0 20px rgba(96, 165, 250, 0.7);
-            }
-        }
-
-        /* Scroll reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.6s, transform 0.6s;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Reduced motion for accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            .hero::before, .hero h1, .hero p, .hero-cta, .feature-card, .nav-cta, .logo {
-                animation: none;
-                transition: none;
+                transform: scale(1.02);
             }
         }
 
         /* Responsive design */
         @media (max-width: 768px) {
-            header {
-                padding: 0.8rem 1rem;
+            .hero h1 {
+                font-size: 2rem;
             }
 
-            nav {
-                flex-direction: column;
-                gap: 0.5rem;
+            .hero p {
+                font-size: 1rem;
             }
 
             nav ul {
-                justify-content: center;
+                gap: 1rem;
+            }
+
+            .nav-cta {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
             }
 
             .hero {
                 padding: 2rem 1rem;
-            }
-
-            .hero h1 {
-                font-size: clamp(1.5rem, 5vw, 2.5rem);
-            }
-
-            .hero p {
-                font-size: clamp(0.9rem, 2.5vw, 1rem);
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            nav ul li a, .nav-cta {
-                font-size: 0.85rem;
-            }
-        }
-
-        /* High-resolution displays */
-        @media (min-resolution: 2dppx) {
-            .hero, .feature-card, header, footer {
-                border-radius: 1.5rem;
             }
         }
     </style>
@@ -385,7 +315,7 @@
     </section>
 
     <!-- Features Section -->
-    <section class="features reveal">
+    <section class="features">
         <h2>Why Choose MySolara?</h2>
         <div class="features-grid">
             <div class="feature-card">
@@ -404,13 +334,12 @@
     </section>
 
     <!-- Footer -->
-    <footer class="reveal">
+    <footer>
         <p>© 2025 MySolara. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </footer>
 
-    <!-- Canvases for effects -->
+    <!-- Canvas for particles -->
     <canvas id="particles"></canvas>
-    <canvas id="waves"></canvas>
 
     <script>
         // Interactive background gradient
@@ -423,30 +352,15 @@
             hero.style.setProperty('--mouse-y', `${y}%`);
         });
 
-        // Touch support
+        // Touch support for mobile
         document.addEventListener('touchmove', (e) => {
-            e.preventDefault();
             const touch = e.touches[0];
             const rect = hero.getBoundingClientRect();
             const x = ((touch.clientX - rect.left) / rect.width) * 100;
             const y = ((touch.clientY - rect.top) / rect.height) * 100;
             hero.style.setProperty('--mouse-x', `${x}%`);
             hero.style.setProperty('--mouse-y', `${y}%`);
-        }, { passive: false });
-
-        // Gyroscope support (for modern devices)
-        if (window.DeviceOrientationEvent && 'requestPermission' in DeviceOrientationEvent) {
-            DeviceOrientationEvent.requestPermission()
-                .then(permission => {
-                    if (permission === 'granted') {
-                        window.addEventListener('deviceorientation', (e) => {
-                            const tilt = e.gamma / 90; // Left-right tilt
-                            hero.querySelector('h1').style.setProperty('--tilt', `${tilt * 5}deg`);
-                        });
-                    }
-                })
-                .catch(console.error);
-        }
+        });
 
         // Parallax effect
         document.addEventListener('mousemove', (e) => {
@@ -456,71 +370,41 @@
             document.querySelector('.hero p').style.setProperty('--parallax-y', `${y * 0.8}px`);
         });
 
-        // Scroll reveal
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.2 });
-
-        reveals.forEach(el => observer.observe(el));
-
-        // Particles with connections
+        // Particles animation
         const canvas = document.getElementById('particles');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
         const particlesArray = [];
-        const numberOfParticles = Math.min(window.innerWidth / 10, 100);
+        const numberOfParticles = 100;
 
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
                 this.size = Math.random() * 2 + 1;
-                this.speedX = Math.random() * 0.4 - 0.2;
-                this.speedY = Math.random() * 0.4 - 0.2;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
             }
 
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
+
                 if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
                 if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
             }
 
             draw() {
-                ctx.fillStyle = 'rgba(96, 165, 250, 0.5)';
+                ctx.fillStyle = 'rgba(59, 130, 246, 0.3)';
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
             }
         }
 
-        function connectParticles() {
-            for (let i = 0; i < particlesArray.length; i++) {
-                for (let j = i + 1; j < particlesArray.length; j++) {
-                    const dx = particlesArray[i].x - particlesArray[j].x;
-                    const dy = particlesArray[i].y - particlesArray[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < 100) {
-                        ctx.strokeStyle = `rgba(96, 165, 250, ${1 - distance / 100})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.beginPath();
-                        ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
-                        ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
         function initParticles() {
-            particlesArray.length = 0;
             for (let i = 0; i < numberOfParticles; i++) {
                 particlesArray.push(new Particle());
             }
@@ -532,52 +416,16 @@
                 particlesArray[i].update();
                 particlesArray[i].draw();
             }
-            connectParticles();
             requestAnimationFrame(animateParticles);
         }
 
         initParticles();
         animateParticles();
 
-        // Waves background
-        const waveCanvas = document.getElementById('waves');
-        const waveCtx = waveCanvas.getContext('2d');
-        waveCanvas.width = window.innerWidth;
-        waveCanvas.height = window.innerHeight;
-
-        let time = 0;
-        function drawWaves() {
-            waveCtx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
-            waveCtx.fillStyle = 'rgba(30, 58, 138, 0.2)';
-            for (let y = 0; y < waveCanvas.height; y += 10) {
-                waveCtx.beginPath();
-                for (let x = 0; x < waveCanvas.width; x += 5) {
-                    const offset = Math.sin((x / 100) + time) * 10 + Math.cos((y / 100) + time) * 10;
-                    waveCtx.lineTo(x, y + offset);
-                }
-                waveCtx.lineTo(waveCanvas.width, waveCanvas.height);
-                waveCtx.lineTo(0, waveCanvas.height);
-                waveCtx.fill();
-            }
-            time += 0.02;
-            requestAnimationFrame(drawWaves);
-        }
-
-        drawWaves();
-
-        // Resize handling
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            waveCanvas.width = window.innerWidth;
-            waveCanvas.height = window.innerHeight;
-            initParticles();
         });
-
-        // Performance optimization for low-end devices
-        if (window.innerWidth < 768 || navigator.hardwareConcurrency < 4) {
-            particlesArray.length = Math.min(particlesArray.length, 50);
-        }
     </script>
 </body>
 </html>
