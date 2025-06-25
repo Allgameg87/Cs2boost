@@ -68,6 +68,7 @@
             color: transparent;
             transition: all 0.3s ease;
             text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+            text-decoration: none;
         }
 
         .logo:hover {
@@ -239,6 +240,10 @@
             transform: translateX(-50%);
             animation: fadeInScale 1.2s ease-in-out;
             text-shadow: 0 0 5px rgba(59, 130, 246, 0.2);
+            background: linear-gradient(90deg, #f8fafc, #cbd5e1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .features-grid {
@@ -488,6 +493,10 @@
             margin-bottom: 1.5rem;
             position: relative;
             display: inline-block;
+            background: linear-gradient(90deg, #f8fafc, #cbd5e1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .footer-column h3::after {
@@ -503,6 +512,7 @@
         .footer-column p, .footer-column ul li a {
             font-size: 1.1rem;
             line-height: 1.8;
+            color: #cbd5e1;
         }
 
         .footer-column ul {
@@ -514,7 +524,6 @@
         }
 
         .footer-column ul li a {
-            color: #cbd5e1;
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-block;
@@ -691,41 +700,105 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem; /* Увеличен для лучшей читаемости */
+                background: none; /* Убираем градиент */
+                -webkit-background-clip: none;
+                background-clip: none;
+                color: #f8fafc; /* Чистый белый для контраста */
+                text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Лёгкая тень для улучшения читаемости */
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1.2rem; /* Увеличен для лучшей читаемости */
+                color: #f8fafc; /* Чистый белый для контраста */
             }
             
-            .features h2, .cta-section h2 {
-                font-size: 2rem;
+            .features h2 {
+                font-size: 2.2rem; /* Увеличен для лучшей читаемости */
+                background: none;
+                -webkit-background-clip: none;
+                background-clip: none;
+                color: #f8fafc;
+                text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
             }
             
-            .feature-card {
-                padding: 2rem;
+            .feature-card h3 {
+                font-size: 1.6rem; /* Слегка увеличен */
+                background: none;
+                -webkit-background-clip: none;
+                background-clip: none;
+                color: #f8fafc;
+                text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
             }
             
-            .features-grid {
-                grid-template-columns: 1fr;
+            .feature-card p {
+                font-size: 1.15rem; /* Слегка увеличен */
+                color: #f8fafc; /* Чистый белый для контраста */
             }
             
             .stats-container {
                 grid-template-columns: 1fr;
             }
             
+            .stat-number {
+                font-size: 3rem;
+                background: none;
+                -webkit-background-clip: none;
+                background-clip: none;
+                color: #3b82f6; /* Сохраняем цвет для статистики */
+                text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            }
+            
+            .stat-label {
+                font-size: 1.15rem;
+                color: #f8fafc;
+            }
+            
+            .cta-section h2 {
+                font-size: 2.2rem;
+                background: none;
+                -webkit-background-clip: none;
+                background-clip: none;
+                color: #f8fafc;
+                text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            }
+            
+            .cta-section p {
+                font-size: 1.2rem;
+                color: #f8fafc;
+            }
+            
             .footer-content {
                 grid-template-columns: 1fr;
+            }
+            
+            .footer-column h3 {
+                font-size: 1.4rem;
+                background: none;
+                -webkit-background-clip: none;
+                background-clip: none;
+                color: #f8fafc;
+                text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            }
+            
+            .footer-column p, .footer-column ul li a {
+                font-size: 1.15rem;
+                color: #f8fafc;
+            }
+            
+            .footer-bottom p {
+                font-size: 1rem;
+                color: #f8fafc;
             }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem; /* Увеличен для лучшей читаемости */
             }
             
             .hero p {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             
             .hero-cta, .cta-button {
@@ -734,16 +807,36 @@
             }
             
             .features h2, .cta-section h2 {
-                font-size: 1.8rem;
+                font-size: 1.9rem;
+            }
+            
+            .feature-card h3 {
+                font-size: 1.4rem;
+            }
+            
+            .feature-card p {
+                font-size: 1rem;
             }
             
             .stat-number {
                 font-size: 2.5rem;
             }
             
+            .stat-label {
+                font-size: 1rem;
+            }
+            
             .nav-cta {
                 padding: 0.5rem 1rem;
                 font-size: 0.9rem;
+            }
+            
+            .footer-column h3 {
+                font-size: 1.3rem;
+            }
+            
+            .footer-column p, .footer-column ul li a {
+                font-size: 1rem;
             }
         }
     </style>
@@ -752,7 +845,7 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">Cs2boost</div>
+            <a href="https://funpay.com/lots/offer?id=39385134" class="logo">Cs2boost</a>
             <ul>
                 <li><a href="#features">Особенности</a></li>
                 <li><a href="#stats">Статистика</a></li>
