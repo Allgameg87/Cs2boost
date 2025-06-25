@@ -79,7 +79,6 @@
             display: flex;
             list-style: none;
             gap: 1.8rem;
-            flex-wrap: wrap;
         }
 
         nav ul li a {
@@ -276,9 +275,7 @@
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
-            mask
-
--composite: exclude;
+            mask-composite: exclude;
             pointer-events: none;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -458,7 +455,7 @@
             position: relative;
             padding: 2rem;
             border-radius: 1rem;
-            background-color #1e293b;
+            background-color: #1e293b;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
@@ -681,9 +678,11 @@
 
         @media (max-width: 768px) {
             nav ul {
-                flex-direction: row;
-                justify-content: center;
-                padding: 1rem;
+                display: none; /* Скрываем навигационное меню на мобильной версии */
+            }
+            
+            nav {
+                justify-content: space-between; /* Логотип слева, кнопка справа */
             }
             
             .hero {
@@ -738,16 +737,13 @@
                 font-size: 1.8rem;
             }
             
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-container {
-                grid-template-columns: 1fr;
-            }
-            
             .stat-number {
                 font-size: 2.5rem;
+            }
+            
+            .nav-cta {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -832,7 +828,7 @@
                 <h3>Cs2boost</h3>
                 <p>Идеальный триггер бот который в undetect уже год, мы пишем программу только с опытными профессионалами которые знают свое дело, и спустя длительные тесты нашего триггер бота он вышел по доступной цене.</p>
                 <div class="social-links">
-                    <a href="https://t.me/cs2boostSapport"><img src="https://img.icons8.com/?size=100&id=114954&format=png&color=000000" alt="Telegram" style="width: 40px; height: 40px;"></a>
+                    <a href="https://t.me/cs2boostSapport"><img src="https://img.icons8.com/?size=100&id=zIULGF6ONbZo&format=png&color=000000" alt="Telegram" style="width: 40px; height: 40px;"></a>
                 </div>
             </div>
             <div class="footer-column">
