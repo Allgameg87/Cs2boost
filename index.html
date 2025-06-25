@@ -79,6 +79,7 @@
             display: flex;
             list-style: none;
             gap: 1.8rem;
+            flex-wrap: wrap;
         }
 
         nav ul li a {
@@ -123,61 +124,6 @@
         .nav-cta:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-        }
-
-        /* Hamburger Menu for Mobile */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            width: 30px;
-            height: 20px;
-            position: relative;
-            z-index: 101;
-        }
-
-        .hamburger span {
-            display: block;
-            position: absolute;
-            height: 3px;
-            width: 100%;
-            background: #3b82f6;
-            border-radius: 3px;
-            opacity: 1;
-            left: 0;
-            transform: rotate(0deg);
-            transition: .25s ease-in-out;
-        }
-
-        .hamburger span:nth-child(1) {
-            top: 0px;
-        }
-
-        .hamburger span:nth-child(2), .hamburger span:nth-child(3) {
-            top: 10px;
-        }
-
-        .hamburger span:nth-child(4) {
-            top: 20px;
-        }
-
-        .hamburger.open span:nth-child(1) {
-            top: 10px;
-            width: 0%;
-            left: 50%;
-        }
-
-        .hamburger.open span:nth-child(2) {
-            transform: rotate(45deg);
-        }
-
-        .hamburger.open span:nth-child(3) {
-            transform: rotate(-45deg);
-        }
-
-        .hamburger.open span:nth-child(4) {
-            top: 10px;
-            width: 0%;
-            left: 50%;
         }
 
         /* Hero Section */
@@ -330,7 +276,9 @@
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
-            mask-composite: exclude;
+            mask
+
+-composite: exclude;
             pointer-events: none;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -510,7 +458,7 @@
             position: relative;
             padding: 2rem;
             border-radius: 1rem;
-            background-color: #1e293b;
+            background-color #1e293b;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
@@ -617,13 +565,16 @@
             height: 40px;
             background-color: #334155;
             border-radius: 50%;
-            color: white; /* Изменено с #cbd5e1 на white для лучшей видимости */
             transition: all 0.3s ease;
+        }
+
+        .social-links a img {
+            width: 40px;
+            height: 40px;
         }
 
         .social-links a:hover {
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: white;
             transform: translateY(-3px);
         }
 
@@ -729,28 +680,10 @@
         }
 
         @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-            
             nav ul {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                height: 100vh;
-                background-color: #1e293b;
-                flex-direction: column;
-                align-items: center;
+                flex-direction: row;
                 justify-content: center;
-                gap: 2rem;
-                transition: right 0.3s ease;
-                z-index: 100;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-            }
-            
-            nav ul.active {
-                right: 0;
+                padding: 1rem;
             }
             
             .hero {
@@ -774,8 +707,12 @@
                 padding: 2rem;
             }
             
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .stats-container {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
             }
             
             .footer-content {
@@ -820,12 +757,6 @@
     <header>
         <nav>
             <div class="logo">Cs2boost</div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
             <ul>
                 <li><a href="#features">Особенности</a></li>
                 <li><a href="#stats">Статистика</a></li>
@@ -901,7 +832,7 @@
                 <h3>Cs2boost</h3>
                 <p>Идеальный триггер бот который в undetect уже год, мы пишем программу только с опытными профессионалами которые знают свое дело, и спустя длительные тесты нашего триггер бота он вышел по доступной цене.</p>
                 <div class="social-links">
-                    <a href="https://t.me/cs2boostSapport"><i class="fab fa-telegram"></i></a>
+                    <a href="https://t.me/cs2boostSapport"><img src="https://img.icons8.com/?size=100&id=114954&format=png&color=000000" alt="Telegram" style="width: 40px; height: 40px;"></a>
                 </div>
             </div>
             <div class="footer-column">
@@ -924,27 +855,7 @@
     <!-- Canvas for particles -->
     <canvas id="particles"></canvas>
 
-    <!-- Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
     <script>
-        // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navUL = document.querySelector('nav ul');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('open');
-            navUL.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('open');
-                navUL.classList.remove('active');
-            });
-        });
-
         // Interactive background gradient
         const hero = document.querySelector('.hero');
         document.addEventListener('mousemove', (e) => {
@@ -980,7 +891,7 @@
         canvas.height = window.innerHeight;
 
         const particlesArray = [];
-        const numberOfParticles = window.innerWidth > 768 ? 100 : 50; // Динамическое количество частиц
+        const numberOfParticles = window.innerWidth > 768 ? 100 : 50;
 
         class Particle {
             constructor() {
