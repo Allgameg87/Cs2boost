@@ -110,6 +110,15 @@
             width: 100%;
         }
 
+        nav ul li a.active {
+            color: #3b82f6;
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
         .nav-cta {
             background: linear-gradient(90deg, #3b82f6, #8b5cf6);
             color: white;
@@ -119,6 +128,19 @@
             font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .nav-cta .sparkles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
         }
 
         .nav-cta:hover {
@@ -197,6 +219,16 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+        }
+
+        .hero-cta .sparkles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
         }
 
         .hero-cta::before {
@@ -424,6 +456,16 @@
             z-index: 1;
         }
 
+        .cta-button .sparkles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
         .cta-button::before {
             content: '';
             position: absolute;
@@ -444,6 +486,44 @@
 
         .cta-button:hover::before {
             opacity: 1;
+        }
+
+        /* Sparkles Animation */
+        .sparkles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            opacity: 0;
+            animation: uniformTwinkle 4s ease-in-out infinite;
+        }
+
+        @keyframes uniformTwinkle {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(59, 130, 246, 0.6);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.8);
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+            }
         }
 
         /* Footer */
@@ -677,6 +757,34 @@
             }
         }
 
+        @keyframes uniformTwinkle {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(59, 130, 246, 0.6);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.8);
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        /* Sparkles Animation */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            opacity: 0;
+            animation: uniformTwinkle 4s ease-in-out infinite;
+        }
+
         /* Responsive design */
         @media (max-width: 1024px) {
             .hero h1 {
@@ -694,11 +802,11 @@
 
         @media (max-width: 768px) {
             nav ul {
-                display: none; /* Скрываем навигационное меню на мобильной версии */
+                display: none;
             }
             
             nav {
-                justify-content: space-between; /* Логотип слева, кнопка справа */
+                justify-content: space-between;
             }
             
             .hero {
@@ -707,21 +815,21 @@
             }
             
             .hero h1 {
-                font-size: 2.8rem; /* Увеличен для лучшей читаемости */
-                background: none; /* Убираем градиент */
+                font-size: 2.8rem;
+                background: none;
                 -webkit-background-clip: none;
                 background-clip: none;
-                color: #f8fafc; /* Чистый белый для контраста */
-                text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Лёгкая тень для улучшения читаемости */
+                color: #f8fafc;
+                text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
             }
             
             .hero p {
-                font-size: 1.2rem; /* Увеличен для лучшей читаемости */
-                color: #f8fafc; /* Чистый белый для контраста */
+                font-size: 1.2rem;
+                color: #f8fafc;
             }
             
             .features h2 {
-                font-size: 2.2rem; /* Увеличен для лучшей читаемости */
+                font-size: 2.2rem;
                 background: none;
                 -webkit-background-clip: none;
                 background-clip: none;
@@ -730,7 +838,7 @@
             }
             
             .feature-card h3 {
-                font-size: 1.6rem; /* Слегка увеличен */
+                font-size: 1.6rem;
                 background: none;
                 -webkit-background-clip: none;
                 background-clip: none;
@@ -739,8 +847,8 @@
             }
             
             .feature-card p {
-                font-size: 1.15rem; /* Слегка увеличен */
-                color: #f8fafc; /* Чистый белый для контраста */
+                font-size: 1.15rem;
+                color: #f8fafc;
             }
             
             .stats-container {
@@ -752,7 +860,7 @@
                 background: none;
                 -webkit-background-clip: none;
                 background-clip: none;
-                color: #3b82f6; /* Сохраняем цвет для статистики */
+                color: #3b82f6;
                 text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
             }
             
@@ -797,11 +905,17 @@
                 font-size: 1rem;
                 color: #f8fafc;
             }
+
+            /* Ensure sparkles are visible and properly scaled on mobile */
+            .sparkle {
+                width: 3px;
+                height: 3px;
+            }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 2.2rem; /* Увеличен для лучшей читаемости */
+                font-size: 2.2rem;
             }
             
             .hero p {
@@ -845,6 +959,12 @@
             .footer-column p, .footer-column ul li a {
                 font-size: 1rem;
             }
+
+            /* Further adjust sparkles for smaller screens */
+            .sparkle {
+                width: 2px;
+                height: 2px;
+            }
         }
     </style>
 </head>
@@ -858,7 +978,10 @@
                 <li><a href="#stats">Статистика</a></li>
                 <li><a href="https://funpay.com/users/8435172/">Прайс</a></li>
             </ul>
-            <a href="https://funpay.com/lots/offer?id=39385134" class="nav-cta">Get Started</a>
+            <a href="https://funpay.com/lots/offer?id=39385134" class="nav-cta">
+                Get Started
+                <div class="sparkles"></div>
+            </a>
         </nav>
     </header>
 
@@ -866,7 +989,10 @@
     <section class="hero">
         <h1>Начни Играть Как Pro</h1>
         <p>Раскройте весь свой потенциал.</p>
-        <a href="https://funpay.com/lots/offer?id=39384867" class="hero-cta">Перейди на новый уровень</a>
+        <a href="https://funpay.com/lots/offer?id=39384867" class="hero-cta">
+            Перейди на новый уровень
+            <div class="sparkles"></div>
+        </a>
     </section>
 
     <!-- Features Section -->
@@ -918,7 +1044,10 @@
     <section class="cta-section">
         <h2>Готов повысить свой уровень в игре?</h2>
         <p>Присоединяйся к нам и ты станешь лучшей версией себя.</p>
-        <a href="https://funpay.com/lots/offer?id=39385054" class="cta-button">Твое здесь и сейчас</a>
+        <a href="https://funpay.com/lots/offer?id=39385054" class="cta-button">
+            Твое здесь и сейчас
+            <div class="sparkles"></div>
+        </a>
     </section>
 
     <!-- Footer -->
@@ -952,6 +1081,40 @@
     <canvas id="particles"></canvas>
 
     <script>
+        // Initialize sparkles for all buttons
+        const buttons = document.querySelectorAll('.nav-cta, .hero-cta, .cta-button');
+        buttons.forEach(button => {
+            const sparklesContainer = button.querySelector('.sparkles');
+            const sparkleCount = 8;
+
+            // Create sparkles with evenly distributed positions
+            for (let i = 0; i < sparkleCount; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                sparklesContainer.appendChild(sparkle);
+
+                // Initial circular distribution
+                const angle = (i / sparkleCount) * 2 * Math.PI;
+                const radius = 30 + Math.random() * 20; // Random radius between 30% and 50%
+                const x = 50 + radius * Math.cos(angle); // Center at 50% + offset
+                const y = 50 + radius * Math.sin(angle); // Center at 50% + offset
+                sparkle.style.left = `${x}%`;
+                sparkle.style.top = `${y}%`;
+                sparkle.style.animationDelay = `${Math.random() * 2}s`;
+
+                // Update position on animation iteration
+                sparkle.addEventListener('animationiteration', () => {
+                    const newAngle = Math.random() * 2 * Math.PI;
+                    const newRadius = 30 + Math.random() * 20;
+                    const newX = 50 + newRadius * Math.cos(newAngle);
+                    const newY = 50 + newRadius * Math.sin(newAngle);
+                    sparkle.style.left = `${newX}%`;
+                    sparkle.style.top = `${newY}%`;
+                    sparkle.style.animationDelay = `${Math.random() * 2}s`;
+                });
+            }
+        });
+
         // Interactive background gradient
         const hero = document.querySelector('.hero');
         document.addEventListener('mousemove', (e) => {
